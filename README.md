@@ -42,34 +42,3 @@ Start/End knobs work relative to whatever position they were in when you selecte
 | **Board** | 2-layer, 100 x 75 mm, 1.6 mm FR4 |
 
 FastLED is capped at 5 V / 2200 mA (`setMaxPowerInVoltsAndMilliamps`) to stay under a USB-C port's ~3 A/15 W rating with headroom for the ESP32, mic, and OLED sharing the rail — worth knowing if you swap in a different strip length or a beefier power source.
-
-## Repo contents
-
-<!-- TODO: adjust to match your actual folder names -->
-
-| Path | Contents |
-|---|---|
-| `/pcb` | KiCad-exported Gerbers + drill files, as submitted to JLCPCB |
-| `/firmware` | `Beat_Sync_LED.ino` |
-| `pcb-bare.png` | Photo of the unpopulated board |
-
-## Getting the PCB made
-
-1. Go to [JLCPCB](https://jlcpcb.com) (or your preferred fab) and upload the Gerber/drill files from `/pcb`.
-2. Board is 2-layer, 1.6 mm, no specific surface finish called out in the job file — JLCPCB's HASL default works fine unless you specified otherwise.
-3. Populate: ESP32 module, mic amp module, level-shifter IC, 5x potentiometer, SSD1306 OLED, connectors.
-   <!-- TODO: link/attach a BOM if you have one -->
-
-## Flashing the firmware
-
-1. Install the Arduino IDE with ESP32 board support.
-2. Install libraries: `arduinoFFT`, `FastLED`, `Adafruit_GFX`, `Adafruit_SSD1306` (`Wire` ships with the core).
-3. Open `Beat_Sync_LED.ino`.
-4. Search for `TUNE ME` — a handful of constants (onset sensitivity, refractory time, ambient brightness, knob deadzone, etc.) are meant to be adjusted for your specific mic/strip/environment.
-5. Select your ESP32 board variant and flash.
-
-> **Heads up:** as uploaded, line 31 (`bool ambientMode = false; =`) has a stray `=` that won't compile — looks like a leftover from an edit. Worth fixing before anyone tries to build this from the README.
-
-## License
-
-<!-- TODO: pick one, e.g. MIT — see LICENSE -->
