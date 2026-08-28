@@ -2,9 +2,9 @@
 
 A custom ESP32-based PCB that listens to music through a microphone and drives a 300-LED WS2812B strip in sync with the beat — five-band FFT analysis, physical knobs for live tuning, and an OLED status display.
 
-![Beat-Sync-LED PCB (unpopulated)](pcb-bare.png)
+<img width="3024" height="4032" alt="Beat Sync LED PCB" src="https://github.com/user-attachments/assets/6ef9b6ec-76aa-4296-b332-a032d8dc782b" />
 
-*Unpopulated board — front and back.*
+*Unpopulated board*
 
 ## How it works
 
